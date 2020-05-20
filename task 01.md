@@ -105,6 +105,7 @@ def train(train_loader, model, criterion, optimizer):
     return np.mean(train_loss)
 ```
 编写train、valid和predict函数，最终输出是loss损失值。
+
 * 5、迭代训练和验证模型
 ```
 model = SVHN_Model1()
@@ -143,6 +144,7 @@ for epoch in range(2):
         torch.save(model.state_dict(), './model.pt')
 ```
 对模型进行训练和验证，得到精度，函数即为步骤4编写的函数，model为步骤3搭建的模型。
+
 * 6、对测试集样本进行预测，生成提交文件
 ```
 test_path = glob.glob('../input/test_a/*.png')
@@ -185,15 +187,15 @@ df_submit = pd.read_csv('../input/test_A_sample_submit.csv')
 df_submit['file_code'] = test_label_pred
 df_submit.to_csv('renset18.csv', index=None)
 ```
+
 # 三、赛题理解
 本次大赛利用的是街景图像字符识别，采用公开数据集SVHN，训练集3w张图片，验证集1w张，包括处理后的图像和存储字符位置信息的json文件，测试集不提供json文件。
-
-
 **原始图片示意**
+
 ![原始图片](原始图片.png)
 
-
 **json文件坐标信息示意**
+
 ![坐标](字符坐标.png)
 
 
@@ -230,8 +232,11 @@ for idx in range(arr.shape[1]):
 ## 解题思路
  在数据集中一张图片的字符数是不固定的，也就是需要对不定长字符进行识别，这不同于车牌识别等有固定格式的图像识别，也是本次学习的难点。dw为学习者提供了三种思路，从易到难。
 * 转化为定长字符识别
+
  通过观察数据集可以发现，最长的字符串长度为6个，因此可以对每一张图片进行6字符的识别，如果缺失则有X代替，例如234会被识别为234XXX，4674会被识别为4674XX，以此类推。
 * 不定长字符识别
+
  用专门解决不定长字符识别的算法，典型的为CRNN算法
 * 位置检测
+
  由于数据已给出字符的位置信息，因此可以首先构建字符检测模型，判断字符个数，再进行识别。可以参考物体检测模型SSD或者YOLO。
