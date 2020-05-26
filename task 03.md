@@ -13,12 +13,12 @@
 
 CNN模型是现在图像识别、计算机视觉领域的主流模型，也推动了本次人工智能浪潮的复兴，通过减少全连接层大幅度减少训练参数个数,同时支持网络深度化。CNN对输入的原始图片进行卷积、池化、全连接层对像素点进行缩减，减少图片尺寸，完成特征识别。
 
- ![IMG](task 03\卷积.png)
+ ![IMG](task 03/卷积.png)
 
 
 最经典的CNN模型Ｌｅｔ－５包含两层卷积、两层池化和两层全连接，最后一层全连接得到具体的分类输出,然后再与真实标签进行比较,将误差反向传播更新各层参数,更新完成后再次向前传播,直到训练完成.网络结构如下图所示:
 
- ![IMG](task 03\Le_CNN.png)
+ ![IMG](task 03/Le_CNN.png)
 
 ### 其他CNN模型
 
@@ -26,19 +26,19 @@ CNN模型是现在图像识别、计算机视觉领域的主流模型，也推�
 
 - AlexNet
 
-   ![IMG](task 03\Alex-net.png)
+   ![IMG](task 03/Alex-net.png)
 
 - VGG-16
 
-   ![IMG](task 03\VGG.png)
+   ![IMG](task 03/VGG.png)
 
 - Inception-v1
 
-   ![IMG](task 03\Incep-net.png)
+   ![IMG](task 03/Incep-net.png)
 
 - ResNet-50
 
-   ![IMG](task 03\Resnet50.png)
+   ![IMG](task 03/Resnet50.png)
 
 ## 利用pytorch搭建字符识别模型
 
