@@ -16,7 +16,7 @@
 由于深度学习模型一般需要较长的训练周期，如果硬件设备不允许建议选取留出法，如果需要追求精度可以使用交叉验证的方法。             
               
 下面假设构建了10折交叉验证，训练得到10个CNN模型。           
-![IMG](Task05/交叉验证.png)      
+![IMG](task 05/交叉验证.png)      
        
 那么在10个CNN模型可以使用如下方式进行集成：
       
@@ -29,7 +29,7 @@
               
 #### 5.3.1 Dropout                
 Dropout可以作为训练深度神经网络的一种技巧。在每个训练批次中，通过随机让一部分的节点停止工作。同时在预测的过程中让所有的节点都其作用。       
-![IMG](Task05/Droopout.png)      
+![IMG](task 05/Droopout.png)      
              
 Dropout经常出现在在先有的CNN网络中，可以有效的缓解模型过拟合的情况，也可以在预测时增加模型的精度。        
                   
@@ -101,7 +101,7 @@ class SVHN_Model1(nn.Module):
 本章的开头已经提到，假设我们训练了10个CNN则可以将多个模型的预测结果进行平均。但是加入只训练了一个CNN模型，如何做模型集成呢？          
                    
 在论文Snapshot Ensembles中，作者提出使用cyclical learning rate进行训练模型，并保存精度比较好的一些checkopint，最后将多个checkpoint进行模型集成。       
-![IMG](Task05/Snapshot.png)     
+![IMG](task 5/Snapshot.png)     
           
 由于在cyclical learning rate中学习率的变化有周期性变大和减少的行为，因此CNN模型很有可能在跳出局部最优进入另一个局部最优。在Snapshot论文中作者通过使用表明，此种方法可以在一定程度上提高模型精度，但需要更长的训练时间。    
  ![IMG](Task05/对比.png)     
